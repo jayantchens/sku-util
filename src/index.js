@@ -173,6 +173,17 @@ export default class SkuUtil {
       return [];
     }
   }
+  
+  /**
+   * 获取当前的 sku 信息
+   * @param {Array} selectSpecList
+   */
+  static getCurrentSku(selectSpecList) {
+    const skukey = this.filterValidArr(selectSpecList).join(';');
+    const hitSpecObj = this.skuResult[skukey]
+    if (!hitSpecObj) return {}
+    return hitSpecObj
+  }
 
   /**
    * 获取选中的规格价格区间
